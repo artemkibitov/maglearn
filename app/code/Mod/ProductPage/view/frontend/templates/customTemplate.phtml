@@ -1,0 +1,11 @@
+<?php
+    /** @var Custom */
+
+use Mod\ProductPage\Block\Custom;
+
+?>
+<?php if ($block->isAvailable()): ?>
+    <h2>
+       <?= $block->getAnyCustomValue(); ?>
+    </h2>
+<?php endif; ?>

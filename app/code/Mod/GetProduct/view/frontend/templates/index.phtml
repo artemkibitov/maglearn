@@ -1,0 +1,21 @@
+<?php
+/** @var \Mod\GetProduct\Block\GetProduct|\Mod\GetProduct\Block\GetProductResource */
+?>
+
+
+<?php $product = $block->getProductById('15') ?>
+<?php if (!is_null($product)) : ?>
+        <h2><?= $product->getName(); ?></h2>
+        <p><?= $product->getDescription() ?></p>
+    <br>
+    <br>
+    <br>
+
+<?php endif; ?>
+<hr>
+
+<?php foreach ($block->getCheapProducts(50) as $cheapProduct): ?>
+        <h2><?= $cheapProduct->getName(); ?></h2>
+        <h3><?= $cheapProduct->getPrice(); ?></h3>
+        <h3><?= $cheapProduct->getImageUrl() ?></h3>
+<?php endforeach; ?>
