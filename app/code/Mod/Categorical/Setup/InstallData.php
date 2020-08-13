@@ -31,6 +31,29 @@ class InstallData implements InstallDataInterface
 
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        // TODO: Implement install() method.
+        $eavSetup = $this->_eavSetupFactory->create();
+
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Category::ENTITY,
+            'categorical',
+            [
+                'group' => 'General',
+                'type' => 'varchar',
+                'label' => 'Categorical',
+                'input' => 'text',
+                'source' => 'Mod\Categorical\Model\Attribute\Source\Categorical',
+                'frontend' => 'Mod\Categorical\Model\Attribute\Frontend\Categorical',
+                'backend' => 'Mod\Categorical\Model\Attribute\Backend\Categorical',
+                'required' => false,
+                'sort_order' => 50,
+                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
+                'is_used_in_grid' => false,
+                'is_visible_in_grid' => false,
+                'is_filterable_in_grid' => false,
+                'visible' => true,
+                'is_html_allowed_on_front' => true,
+                'visible_on_front' => true
+            ]
+        );
     }
 }

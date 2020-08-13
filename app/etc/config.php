@@ -243,6 +243,8 @@ return [
         'Klarna_Kp' => 1,
         'Magento_PaypalReCaptcha' => 1,
         'MSP_TwoFactorAuth' => 1,
+        'Mod_Categorical' => 1,
+        'Mod_CheckThis' => 1,
         'Mod_ClothingMaterial' => 1,
         'Mod_First' => 1,
         'Mod_GetProduct' => 1,

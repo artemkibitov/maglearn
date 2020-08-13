@@ -3,7 +3,6 @@
 namespace Mod\ClothingMaterial\Model\Attribute\Frontend;
 
 use Magento\Eav\Model\Entity\Attribute\Frontend\AbstractFrontend;
-
 class Material extends AbstractFrontend
 {
     public function getValue(\Magento\Framework\DataObject $object)

@@ -27,10 +27,7 @@ class Index extends \Magento\Framework\App\Action\Action
     {
         $collection = $this->_collectionFactory->create();
         $collection->addCategoryFilter()->getSelect();
-        foreach ($collection as $item) {
-        print_r($item);
-        }
-
+        echo "y\no";
         //        $post = $this->_postFactory->create();
 //        $collection = $post->getCollection();
 //        foreach ($collection as $item) {
