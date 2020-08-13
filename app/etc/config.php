@@ -248,6 +248,7 @@ return [
         'Mod_ClothingMaterial' => 1,
         'Mod_First' => 1,
         'Mod_GetProduct' => 1,
+        'Mod_PricePlugin' => 1,
         'Mod_ProductPage' => 1,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
