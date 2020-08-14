@@ -2,16 +2,13 @@
 
 namespace Mod\PricePlugin\Plugins;
 
+
 class Product
 {
-    public function afterGetName(\Magento\Catalog\Model\Product $product, $name)
+
+    public function afterGetName(\Magento\Catalog\Model\Product $subject, $result)
     {
-        $price = $product->getData('price');
-        if ($price < 60) {
-            $name .= "\tgood price!";
-        } else {
-            $name .= "\tover price!";
-        }
-        return $name;
+
+        return $result . "plugin";
     }
 }

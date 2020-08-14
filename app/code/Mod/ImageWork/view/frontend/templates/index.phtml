@@ -1,0 +1,10 @@
+<?php
+
+$_product = $block->getProductBySku('MJ12');
+$imageId = 'product_base_image';
+$width = 1200;
+$height = 1300;
+$resizedImageUrl = $block->resizeImage($_product, $imageId, $width, $height)->getUrl();
+?>
+
+<img src="<?php echo $resizedImageUrl;?>" alt="<?php echo $_product->getTitle();?>">
