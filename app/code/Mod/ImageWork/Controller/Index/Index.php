@@ -1,9 +1,6 @@
 <?php
 
-
 namespace Mod\ImageWork\Controller\Index;
-
-
 
 class Index extends \Magento\Framework\App\Action\Action
 {
@@ -22,7 +19,9 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
-       return $this->_pageFactory->create();
-
+        $textDisplay = new \Magento\Framework\DataObject(['text' => 'текст']);
+        $this->_eventManager->dispatch('mod_imagework_display_text', ['data_text' => $textDisplay]);
+        echo $textDisplay->getText();
+        return $this->_pageFactory->create();
     }
 }
