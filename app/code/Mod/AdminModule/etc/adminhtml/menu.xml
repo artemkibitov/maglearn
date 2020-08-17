@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+
+    <menu>
+        <add id="Mod_AdminModule::firstmodule" title="First Module" module="Mod_AdminModule"
+             sortOrder="51" resource="Mod_AdminModule::firstmodule"/>
+
+        <add id="Mod_AdminModule::post" title="Manage Posts" module="Mod_AdminModule"
+             sortOrder="10" action="mod_adminmodule/post" resource="Mod_AdminModule::post"
+             parent="Mod_AdminModule::firstmodule"/>
+
+        <add id="Mod_AdminModule::firstmodule_configuration" title="Configuration" module="Mod_AdminModule"
+             sortOrder="99" parent="Mod_AdminModule::firstmodule"
+             action="adminhtml/system_config/edit/section/firstmodule"
+             resource="Mod_AdminModule::firstmodule_configuration"/>
+    </menu>
+
+</config>
