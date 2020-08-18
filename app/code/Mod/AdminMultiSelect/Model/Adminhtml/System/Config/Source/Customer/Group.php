@@ -2,12 +2,16 @@
 
 namespace Mod\AdminMultiSelect\Model\Adminhtml\System\Config\Source\Customer;
 
-use Magento\Catalog\Helper\Category as CategoryHelper;
 use Magento\Framework\Data\OptionSourceInterface;
+use Mod\AdminMultiSelect\Helper\Custom\CategoryHelper;
 
 class Group implements OptionSourceInterface
 {
     protected $_categoryHelper;
+
+//    protected $_categoryFactory;
+//
+//    protected $_categoryCollectionFactory;
 
     public function __construct(CategoryHelper $categoryHelper)
     {
@@ -17,21 +21,45 @@ class Group implements OptionSourceInterface
     public function toOptionArray()
     {
         $options = [];
-        $arr = $this->toArray();
-        foreach ($arr as $key => $value) {
-            $options[] = ['value' => $key, 'label' => $value];
+
+        foreach ($this->_toArray() as $key => $value) {
+            $options[] = [
+                'value' => $key,
+                'label' => $value
+            ];
         }
+
         return $options;
     }
 
-    public function toArray()
+    private function _toArray()
     {
         $categoryList = [];
-        $categories = $this->_categoryHelper->getStoreCategories(true, false, true);
+        $categories = $this->_categoryHelper->getCategoryCollection(true, false, false, false);
         foreach ($categories as $category) {
-            $categoryList[$category->getEntityId()] = __($category->getName());
+            $categoryList[$category->getEntityId()] =
+                __($this->_getParentName($category->getPath()) . $category->getName() .
+                    $this->_categoryHelper->productCount($category));
         }
 
         return $categoryList;
+    }
+
+    private function _getParentName($path = '')
+    {
+        $parentName = '';
+        $rootCats = [1,2];
+        $catTree = explode("/", $path);
+        array_pop($catTree);
+        if ($catTree && (count($catTree) > count($rootCats))) {
+            foreach ($catTree as $catId) {
+                if (!in_array($catId, $rootCats)) {
+                    $category = $this->_categoryHelper->getCategoryFactory()->create()->load($catId);
+                    $categoryName = $category->getName();
+                    $parentName .= $categoryName . ' -> ';
+                }
+            }
+        }
+        return $parentName;
     }
 }
