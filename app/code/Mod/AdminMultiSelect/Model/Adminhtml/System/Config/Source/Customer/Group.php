@@ -29,7 +29,7 @@ class Group implements ArrayInterface
         $categoryList = [];
         $categories = $this->_categoryHelper->getStoreCategories(true, false, true);
         foreach ($categories as $category) {
-            $categoryList[$category->getEnityId()] = $category->getName();
+            $categoryList[$category->getEntityId()] = __($category->getName());
         }
 
         return $categoryList;
