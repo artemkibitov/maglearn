@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="adminmultiselect" translate="label" sortOrder="10">
+            <label>Admin Multi Select</label>
+        </tab>
+        <section id="multiselectmodule" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Multi Select Module</label>
+            <tab>adminmultiselect</tab>
+            <resource>Mod_AdminMultiSelect::multiselectmodule_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Multi Select Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="list" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Category List</label>
+                    <source_model>Mod\AdminMultiSelect\Model\Adminhtml\System\Config\Source\Customer\Group</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

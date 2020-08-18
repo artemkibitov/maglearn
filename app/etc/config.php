@@ -244,6 +244,7 @@ return [
         'Magento_PaypalReCaptcha' => 1,
         'MSP_TwoFactorAuth' => 1,
         'Mod_AdminModule' => 1,
+        'Mod_AdminMultiSelect' => 1,
         'Mod_Categorical' => 1,
         'Mod_CheckThis' => 1,
         'Mod_ClothingMaterial' => 1,
