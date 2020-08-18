@@ -1,0 +1,19 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mod_adminmodule_post_listing_data_source" xsi:type="string">
+                    Mod\AdminModule\Model\ResourceModel\Post\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Mod\AdminModule\Model\ResourceModel\Post\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mod_adminmodule_post</argument>
+            <argument name="resourceModel" xsi:type="string">Mod\AdminModule\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+</config>
