@@ -3,9 +3,9 @@
 namespace Mod\AdminMultiSelect\Model\Adminhtml\System\Config\Source\Customer;
 
 use Magento\Catalog\Helper\Category as CategoryHelper;
-use Magento\Framework\Option\ArrayInterface;
+use Magento\Framework\Data\OptionSourceInterface;
 
-class Group implements ArrayInterface
+class Group implements OptionSourceInterface
 {
     protected $_categoryHelper;
 
