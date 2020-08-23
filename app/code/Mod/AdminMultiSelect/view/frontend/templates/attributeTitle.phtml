@@ -1,0 +1,21 @@
+<?php
+/**
+ * @var \Mod\AdminMultiSelect\Block\AttributeTitle $block
+ */
+?>
+
+    <div>
+        <?php if (gettype($block->view()) ===  'array'): ?>
+            <?php
+            $colored = ['rgba(255,111,0,0.49)','rgba(22,168,226,1)','rgba(0,183,255,0.75)'];
+            $i = 0;
+            ?>
+            <?php foreach ($block->view() as $key => $viewItem): ?>
+                <span><?=$key?> : </span>
+                <span style="color:<?=$colored[$i];?>"><?= $viewItem ?></span>
+
+                <?php $i++; ($i > 2) && ($i = 0); ?>
+
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>

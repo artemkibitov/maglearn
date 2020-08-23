@@ -1,6 +1,6 @@
 <?php
 
-namespace Mod\AdminMultiSelect\Model\Adminhtml\System\Config\Source\Customer;
+namespace Mod\AdminMultiSelect\Model\System\Config;
 
 use Magento\Framework\Data\OptionSourceInterface;
 use Mod\AdminMultiSelect\Helper\Custom\CategoryHelper;
@@ -38,8 +38,10 @@ class Group implements OptionSourceInterface
         $categories = $this->_categoryHelper->getCategoryCollection(true, false, false, false);
         foreach ($categories as $category) {
             $categoryList[$category->getEntityId()] =
-                __($this->_getParentName($category->getPath()) . $category->getName() .
-                    $this->_categoryHelper->productCount($category));
+                __( $this->_getParentName($category->getPath()) .
+                    $category->getName() .
+                    ' ('.$category->getEntityId().')'
+                );
         }
 
         return $categoryList;
@@ -55,6 +57,7 @@ class Group implements OptionSourceInterface
             foreach ($catTree as $catId) {
                 if (!in_array($catId, $rootCats)) {
                     $category = $this->_categoryHelper->getCategoryFactory()->create()->load($catId);
+
                     $categoryName = $category->getName();
                     $parentName .= $categoryName . ' -> ';
                 }

@@ -4,6 +4,7 @@ namespace Mod\AdminMultiSelect\Helper\Custom;
 
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Catalog\Helper\Category;
+use Magento\Framework\Exception\NoSuchEntityException;
 
 class CategoryHelper extends Category
 {
@@ -20,6 +21,15 @@ class CategoryHelper extends Category
         $this->_categoryCollectionFactory = $collectionFactory;
 
         parent::__construct($context, $categoryFactory, $storeManager, $dataCollectionFactory, $categoryRepository);
+    }
+
+    public function getCategoryName($categoryId)
+    {
+        try {
+            return $this->categoryRepository->get($categoryId)->getName();
+        } catch (NoSuchEntityException $e) {
+            return false;
+        }
     }
 
     public function getCategoryCollection($isActive = true, $level = false, $sortBy = false, $pageSize = false)

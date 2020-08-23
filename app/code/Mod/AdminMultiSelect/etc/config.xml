@@ -4,7 +4,7 @@
     <default>
         <multiselectmodule>
             <general>
-                <enable>0</enable>
+                <enable>1</enable>
             </general>
         </multiselectmodule>
     </default>

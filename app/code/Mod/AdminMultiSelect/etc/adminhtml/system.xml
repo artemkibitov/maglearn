@@ -17,7 +17,7 @@
                 </field>
                 <field id="list" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Category List</label>
-                    <source_model>Mod\AdminMultiSelect\Model\Adminhtml\System\Config\Source\Customer\Group</source_model>
+                    <source_model>Mod\AdminMultiSelect\Model\System\Config\Group</source_model>
                 </field>
             </group>
         </section>
