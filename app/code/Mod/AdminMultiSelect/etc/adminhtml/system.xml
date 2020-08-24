@@ -19,6 +19,11 @@
                     <label>Category List</label>
                     <source_model>Mod\AdminMultiSelect\Model\System\Config\Group</source_model>
                 </field>
+                <field id="datePicker" translate="label" type="date" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Select Date</label>
+                    <config_path>yotpo/sync_settings/orders_sync_start_date</config_path>
+                    <frontend_model>Yotpo\Yotpo\Block\Adminhtml\System\Config\Form\Field\Date</frontend_model>
+                </field>
             </group>
         </section>
     </system>

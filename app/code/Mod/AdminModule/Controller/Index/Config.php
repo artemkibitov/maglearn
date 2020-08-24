@@ -18,8 +18,7 @@ class Config extends Action
 
     public function execute()
     {
-        echo $this->_helperData->getGeneralConfig('enable');
-        echo $this->_helperData->getGeneralConfig('display_text');
+        phpinfo();
         exit();
     }
 }

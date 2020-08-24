@@ -1,0 +1,12 @@
+<?php
+/**
+ * @var $block \Mod\AdminMultiSelect\Block\DateOffer
+ */
+?>
+
+<?php if ($block->specialOffer()): ?>
+<div>
+    <p style="font-size: 28px;">Поспеши... <span style="font-size: 31px; font-weight: bolder; color: rgba(227,87,87,0.82)">Больше такого никогда не будет</span></p>
+    <p>Успей до : <span><?=$block->tellTheOfferTime()?></span></p>
+</div>
+<?php endif; ?>

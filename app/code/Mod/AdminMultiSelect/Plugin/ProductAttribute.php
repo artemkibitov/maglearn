@@ -11,9 +11,13 @@ class ProductAttribute
         $this->dataHelper = $dataHelper;
     }
 
+
+
     public function afterView(\Magento\Catalog\Block\Product\View $subject, $name)
     {
-        if (in_array($subject->getProduct()->getCategoryId(), $this->dataHelper->getSelectedCategory()) && !!$this->dataHelper->getEnable()) {
+        $categoryId = $subject->getProduct()->getCategoryId() ?: $subject->getProduct()->getCategoryIds()[0];
+
+        if (in_array($categoryId, $this->dataHelper->getSelectedCategory()) && !!$this->dataHelper->getEnable()) {
             return $name;
         }
         return false;

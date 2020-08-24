@@ -9,6 +9,11 @@
                    template="Mod_AdminMultiSelect::attributeTitle.phtml"
                    before="product.info.price"
             />
+            <block name="product.info.main.date_offer"
+                   class="Mod\AdminMultiSelect\Block\DateOffer"
+                   template="Mod_AdminMultiSelect::dateOffer.phtml"
+                   before="product.info.main.attribute_title"
+            />
         </referenceContainer>
     </body>
 

@@ -59,6 +59,9 @@ class AttributeTitle extends \Magento\Catalog\Block\Product\View
 
     protected function getCategoryId()
     {
+        if (!$this->getProduct()->getCategoryId()) {
+            return $this->getProduct()->getCategoryIds()[0];
+        }
         return $this->getProduct()->getCategoryId();
     }
 
