@@ -2,7 +2,6 @@
 
 namespace Mod\AdminMultiSelect\Plugin;
 
-
 class DateOffer
 {
     protected $dataHelper;
@@ -17,10 +16,9 @@ class DateOffer
         if (!$this->dataHelper->getEnable()) {
             return $result;
         }
-
         $timeNow = new \DateTime(date('Y-m-d'));
-
         $selectedDate = new \DateTime($this->dataHelper->getDateConfig());
+
         $result = $selectedDate >= $timeNow;
         return $result;
     }
