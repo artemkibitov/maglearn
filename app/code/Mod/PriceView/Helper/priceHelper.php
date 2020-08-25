@@ -32,8 +32,16 @@ class priceHelper extends AbstractHelper
             }
         }
 
-        if (count($result) === 1) return $result[0];
+        if (count($result) === 1) {
+            return $result[0];
+        }
         return implode('; ', $result);
+    }
+
+    public function getRulesFromProduct($productId, $customerGroupId = 3, $websiteId = 1)
+    {
+        $date = (new \DateTime(date('Y-m-d')))->format('Y-m-d');
+        return $this->_priceModel->getRulesFromProduct($date, $websiteId, $customerGroupId, $productId);
     }
 
     public function getRulePrice($productId, $customerGroupId = 3, $websiteId = 1)

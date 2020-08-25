@@ -24,4 +24,18 @@
     <?php endif; ?>
     <?php $count++; ($count >= count($view) && ($count = 0)); ?>
     <?php endforeach;?>
+
+    <div id="get-start"></div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        require(['jquery', 'jquery_countdown'], function($, countdown){
+        $("#get-start").countdown('<?= $block->offerTime()?>', function (e) {
+                $(this).text(
+                    e.strftime('%D days %H:%M:%S')
+                );
+        });
+        });
+        //]]>
+    </script>
 </div>

@@ -60,15 +60,11 @@ class PriceView extends View
     {
         return $this->getProduct()->getPrice();
     }
-
-    public function view()
+    public function offerTime()
     {
-        return [
-          'Base Price'         => $this->basePrice(),
-          'Tier Price'         => $this->tierPrice(),
-          'final Price'        => $this->finalPrice(),
-          'special Price'      => $this->specialPrice(),
-          'catalog rule Price' => $this->catalogRulePrice(),
-        ];
+        $rulesArr = $this->_priceHelper->getRulesFromProduct($this->getProduct()->getId());
+
+        return (new \DateTime())->setTimestamp($rulesArr[0]['to_time'])->format('Y/m/d');
     }
+
 }
