@@ -72,3 +72,22 @@ class PriceView extends View
         ];
     }
 }
+
+
+/**
+<?php if ($block->basePrice()): ?>
+<p><span style="font-weight: bolder; border-bottom: 2px solid <?=$colorize[$count++]?>">base price :</span> <?=$block->basePrice()?></p>
+<?php endif; ?>
+<?php if ($block->tierPrice()): ?>
+<p><span style="font-weight: bolder; border-bottom: 2px solid <?=$colorize[$count++]?>">tier price :</span> <?=($block->tierPrice());?></p>
+<?php endif; ?>
+<?php if ($block->finalPrice()): ?>
+<p><span style="font-weight: bolder; border-bottom: 2px solid <?=$colorize[$count++]?>">final price :</span> <?=$block->finalPrice();?></p>
+<?php endif; ?>
+<?php if ($block->specialPrice()): ?>
+<p><span style="font-weight: bolder; border-bottom: 2px solid <?=$colorize[$count++]?>">special price :</span> <?=$block->specialPrice();?></p>
+<?php endif; ?>
+<?php if ($block->catalogRulePrice()): ?>
+<p><span style="font-weight: bolder; border-bottom: 2px solid <?=$colorize[$count++]?>">catalog rule price:</span> <?=$block->catalogRulePrice();?></p>
+<?php endif; ?>
+ */

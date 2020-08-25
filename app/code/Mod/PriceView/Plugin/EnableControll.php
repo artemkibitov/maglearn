@@ -17,7 +17,7 @@ class EnableControll
     public function afterTierPrice(Subject $subject, $value)
     {
         if (!$this->_dataHelper->getGeneralConfig('enable')   ||
-            $this->_dataHelper->getGeneralConfig('tier_price')) {
+            !$this->_dataHelper->getGeneralConfig('tier_price')) {
             return false;
         }
         return  $value;
@@ -25,7 +25,7 @@ class EnableControll
     public function afterBasePrice(Subject $subject, $value)
     {
         if (!$this->_dataHelper->getGeneralConfig('enable')   ||
-            $this->_dataHelper->getGeneralConfig('base_price')) {
+            !$this->_dataHelper->getGeneralConfig('base_price')) {
             return false;
         }
         return  $value;
@@ -33,7 +33,7 @@ class EnableControll
     public function afterFinalPrice(Subject $subject, $value)
     {
         if (!$this->_dataHelper->getGeneralConfig('enable')   ||
-            $this->_dataHelper->getGeneralConfig('final_price')) {
+            !$this->_dataHelper->getGeneralConfig('final_price')) {
             return false;
         }
         return  $value;
@@ -41,7 +41,7 @@ class EnableControll
     public function afterSpecialPrice(Subject $subject, $value)
     {
         if (!$this->_dataHelper->getGeneralConfig('enable')   ||
-            $this->_dataHelper->getGeneralConfig('special_price')) {
+            !$this->_dataHelper->getGeneralConfig('special_price')) {
             return false;
         }
         return  $value;
@@ -49,7 +49,7 @@ class EnableControll
     public function afterCatalogRulePrice(Subject $subject, $value)
     {
         if (!$this->_dataHelper->getGeneralConfig('enable')   ||
-            $this->_dataHelper->getGeneralConfig('catalog_rule_price')) {
+            !$this->_dataHelper->getGeneralConfig('catalog_rule_price')) {
             return false;
         }
         return  $value;
