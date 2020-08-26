@@ -15,27 +15,12 @@
           'special Price'      => $this->specialPrice(),
           'catalog rule Price' => $this->catalogRulePrice(),
     ];
-    $colorize = ['#0077c2','#00bcd4','#dce775','#f57f17','#90a4ae'];
     $count = 0;
 ?>
     <?php foreach ($view as $key => $item): ?>
     <?php if ($item) : ?>
-    <p><span style="font-weight: bolder; border-bottom: 2px solid <?=$colorize[$count]?>"><?=$key?></span> : <?=$item?></p>
+    <p><span style="font-weight: bolder; border-bottom: 2px solid <?=$block->colorize()[$count]?>"><?=$key?></span> : <?=$item?></p>
     <?php endif; ?>
-    <?php $count++; ($count >= count($view) && ($count = 0)); ?>
+    <?php $count++; ($count > (count($block->colorize())-1) && ($count = 0)); ?>
     <?php endforeach;?>
-
-    <div id="get-start"></div>
-
-    <script type="text/javascript">
-        //<![CDATA[
-        require(['jquery', 'jquery_countdown'], function($, countdown){
-        $("#get-start").countdown('<?= $block->offerTime()?>', function (e) {
-                $(this).text(
-                    e.strftime('%D days %H:%M:%S')
-                );
-        });
-        });
-        //]]>
-    </script>
 </div>

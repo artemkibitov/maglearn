@@ -42,6 +42,7 @@ class PriceView extends View
 
     public function tierPrice()
     {
+        if (!$this->getProduct()->getTierPrice()) return null;
         return $this->_priceHelper->FormatTierPrice($this->getProduct()->getTierPrice());
     }
     public function finalPrice()
@@ -52,19 +53,22 @@ class PriceView extends View
     {
         return $this->getProduct()->getSpecialPrice();
     }
+
     public function catalogRulePrice()
     {
+        if (!$this->_priceHelper->getRulePrice($this->getProduct()->getId())) return  null;
         return implode(' ; ', $this->_priceHelper->getRulePrice($this->getProduct()->getId()));
     }
+
     public function basePrice()
     {
         return $this->getProduct()->getPrice();
     }
-    public function offerTime()
-    {
-        $rulesArr = $this->_priceHelper->getRulesFromProduct($this->getProduct()->getId());
 
-        return (new \DateTime())->setTimestamp($rulesArr[0]['to_time'])->format('Y/m/d');
+    //баловство
+    public function colorize()
+    {
+        return ['#0077c2','#00bcd4','#dce775','#f57f17','#90a4ae'];
     }
 
 }

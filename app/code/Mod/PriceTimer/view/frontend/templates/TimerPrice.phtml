@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var $block \Mod\PriceTimer\Block\TimerPrice
+ */
+?>
+
+
+<div>
+    <?php if ($block->ruleOfferTime()): ?>
+        <div id="catalog-rule">
+            <h2>catalog rule price</h2>
+        </div>
+    <?php endif; ?>
+    <?php if ($block->specialOfferTime()): ?>
+        <div>
+            <h2>special price</h2>
+            <p id="special-price"></p>
+        </div>
+    <?php endif; ?>
+    <?php if ($block->ruleOfferTime() && $block->specialOfferTime()): ?>
+        <div><p><span style="color: <?=$block->colorize()[rand(0, count($block->colorize())-1)]?>"><?= $block->firstOfferEnd();?></span> will end soon</p></div>
+    <?php endif; ?>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    require(['jquery', 'jquery_countdown'], function($, countdown) {
+        <?php if ($block->ruleOfferTime()) : ?>
+        let ruleTimeData = <?= $block->ruleOfferTime() ?>;
+
+        if(typeof ruleTimeData !== 'object') ruleTimeData = [ruleTimeData];
+
+        ruleTimeData.forEach((item, index)=> {
+            $("#catalog-rule").append(`<p id="catalog-rule${index}"></p>`);
+            $(`#catalog-rule${index}`).countdown(item, function (e) {
+                $(this).text( e.strftime('%D days %H:%M:%S'))
+            })
+        });
+        <?php endif; ?>
+
+        $("#special-price").countdown('<?=$block->specialOfferTime();?>', function (e) {
+            $(this).text(
+                e.strftime('%D days %H:%M:%S')
+            )
+        })
+    });
+    //]]>
+</script>

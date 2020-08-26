@@ -271,6 +271,7 @@ return [
         'Mod_GetProduct' => 0,
         'Mod_ImageWork' => 0,
         'Mod_PricePlugin' => 0,
+        'Mod_PriceTimer' => 1,
         'Mod_PriceView' => 1,
         'Mod_ProductPage' => 0,
         'Temando_ShippingRemover' => 1,
