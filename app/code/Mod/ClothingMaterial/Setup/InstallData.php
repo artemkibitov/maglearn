@@ -11,7 +11,7 @@ class InstallData implements InstallDataInterface
 {
     /**
      * Eav setup factory
-     * @var _eavSetupFactory
+     * @var $_eavSetupFactory
      */
     private $_eavSetupFactory;
 

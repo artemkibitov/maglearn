@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <default>
+        <payment>
+            <custompayment>
+                <model>Mod\Payment\Model\PaymentMethod</model>
+                <title>Custom Pay</title>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+                <active>1</active>
+                <order_status>pending</order_status>
+            </custompayment>
+        </payment>
+    </default>
+</config>
